@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">LuxMDM</string>
+    <string name="receiverDESC">Device administration tool</string>
+    <string name="label">LuxMDM</string>
+</resources>

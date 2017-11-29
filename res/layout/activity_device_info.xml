@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/device_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#63b7b9"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="corp.laouni.luxmdm.device_info">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logonew"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/logo"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password Configurations : "
+        android:id="@+id/configs"
+        android:layout_below="@id/logo"
+        android:textStyle="bold"
+        android:layout_marginTop="80px"
+        android:padding="5px"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/configsDisplay"
+        android:layout_below="@id/logo"
+        android:layout_toRightOf="@id/configs"
+        android:textColor="#1a6308"
+        android:layout_marginTop="80px"
+        android:padding="5px"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password SET NEW : "
+        android:id="@+id/setNew"
+        android:textStyle="bold"
+        android:layout_below="@id/configs"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/PassCheck"
+        android:layout_below="@id/configs"
+        android:textColor="#1a6308"
+        android:layout_toRightOf="@id/setNew"
+        android:layout_alignLeft="@id/configsDisplay"
+        android:padding="5px"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Storage Encryption : "
+        android:id="@+id/encryptionView"
+        android:textStyle="bold"
+        android:layout_below="@id/setNew"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/encryDisplay"
+        android:layout_below="@id/setNew"
+        android:textColor="#1a6308"
+        android:layout_toRightOf="@id/encryptionView"
+        android:layout_alignLeft="@id/PassCheck"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Device : "
+        android:id="@+id/Device"
+        android:textStyle="bold"
+        android:layout_below="@id/encryptionView"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/DeviceDisplay"
+        android:textColor="#1a6308"
+        android:layout_below="@id/encryptionView"
+        android:layout_toRightOf="@id/Device"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Model : "
+        android:id="@+id/Model"
+        android:textStyle="bold"
+        android:layout_below="@id/Device"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ModelDisplay"
+        android:textColor="#1a6308"
+        android:layout_below="@id/Device"
+        android:layout_toRightOf="@id/Model"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Product : "
+        android:id="@+id/Product"
+        android:textStyle="bold"
+        android:layout_below="@id/Model"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/productDisplay"
+        android:textColor="#1a6308"
+        android:layout_below="@id/Model"
+        android:layout_marginTop="5px"
+        android:layout_toRightOf="@id/Product"
+        android:layout_marginLeft="10dp"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Brand : "
+        android:id="@+id/Brand"
+        android:textStyle="bold"
+        android:layout_below="@id/Product"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/brandDisplay"
+        android:textColor="#1a6308"
+        android:layout_below="@id/Product"
+        android:layout_toRightOf="@id/Brand"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Serial : "
+        android:id="@+id/Serial"
+        android:textStyle="bold"
+        android:layout_below="@id/Brand"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/serialDisplay"
+        android:textColor="#1a6308"
+        android:layout_below="@id/Brand"
+        android:layout_marginTop="5px"
+        android:layout_marginLeft="10dp"
+        android:layout_alignLeft="@id/brandDisplay"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID : "
+        android:id="@+id/ID"
+        android:textStyle="bold"
+        android:layout_below="@id/Serial"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/id_display"
+        android:textColor="#1a6308"
+        android:layout_below="@id/Serial"
+        android:layout_toRightOf="@id/ID"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5px"
+        android:padding="5px"/>
+
+
+</RelativeLayout>
