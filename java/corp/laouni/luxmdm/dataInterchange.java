@@ -36,7 +36,7 @@ public class dataInterchange {
             uploads.put("data", data);
             return  uploads;
         }catch (JSONException e) {
-            Log.d("Error Lux: ", e.toString());
+            Log.d("Error formatDataJSON: ", e.toString());
         }
         return null;
     }
@@ -59,16 +59,24 @@ public class dataInterchange {
 
     private String getServerResponse(JSONObject json){
         String apiUrl = "loiclaouni.pythonanywhere.com/api/v1/luxmdm";
+        String apiURL2 = "loiclaouni.pythonanywhere.com/api/v1/AppRegToken";
         HttpURLConnection apiconnection = null;
+        URL url;
         String response ="";
         try {
-            URL url = new URL(apiUrl);
+            if (json.has("key")){
+                 url = new URL(apiURL2);
+            }
+            else {
+                url= new URL(apiUrl);
+            }
+
             apiconnection = (HttpURLConnection) url.openConnection();
             apiconnection.setRequestMethod("POST");
             apiconnection.setRequestProperty("Content-Type", "application/json");
             apiconnection.setRequestProperty("Accept","application/json");
             apiconnection.setDoOutput(true);
-            //apiconnection.setDoInput(true);
+            apiconnection.setDoInput(true);
             DataOutputStream dataOut = new DataOutputStream(apiconnection.getOutputStream());
             dataOut.writeBytes(json.toString());
             dataOut.flush();
@@ -88,5 +96,18 @@ public class dataInterchange {
             apiconnection.disconnect();
         }
         return  response;
+    }
+
+    private JSONObject formatKeyAsJSON (String key){
+
+        final JSONObject JsonKEY = new JSONObject();
+
+        try {
+            JsonKEY.put("key", key);
+            //return  JsonKEY;
+        }catch (JSONException e) {
+            Log.d("Error formatKeyAsJSON: ", e.toString());
+        }
+        return JsonKEY;
     }
 }

@@ -38,9 +38,11 @@ public class MainActivity extends Activity {
             activateDevAdmin.putExtra(DevicePolicyManager.EXTRA_ADD_EXPLANATION,"After activating admin, you will be able to block applications uninstallation");
 
             startActivityForResult(activateDevAdmin, PolicyActivationCode);
+           // setContentView(R.layout.activity_main);
 
         }
-        setPWDconfigs();
+        //onStart();
+        //setPWDconfigs();
     }
     private void setPWDconfigs(){
 
@@ -103,7 +105,7 @@ public class MainActivity extends Activity {
         user_Name = staffName.getText().toString();
         user_dept = staffDept.getText().toString();
 
-        postDATA.sendDataToServer(user_id, user_Name, user_dept);
+        //postDATA.sendDataToServer(user_id, user_Name, user_dept);
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
