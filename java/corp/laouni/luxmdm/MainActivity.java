@@ -97,19 +97,20 @@ public class MainActivity extends Activity {
         staffDept = (EditText) findViewById(R.id.staffDept);
         submit = (Button) findViewById(R.id.submit_button);
 
-        String user_Name;
-        String user_id;
-        String user_dept;
-
-        user_id = staffID.getText().toString();
-        user_Name = staffName.getText().toString();
-        user_dept = staffDept.getText().toString();
-
-        //postDATA.sendDataToServer(user_id, user_Name, user_dept);
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String user_Name;
+                String user_id;
+                String user_dept;
+
+                user_id = staffID.getText().toString();
+                user_Name = staffName.getText().toString();
+                user_dept = staffDept.getText().toString();
+
+                postDATA.sendDataToServer(user_id,user_Name,user_dept);
+
                 Intent deviceInfo = new Intent(MainActivity.this, device_info.class);
                 startActivity(deviceInfo);
             }

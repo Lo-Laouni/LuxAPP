@@ -11,6 +11,8 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 
 public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
 
+    dataInterchange uploadkey = new dataInterchange();
+
     @Override
     public void onTokenRefresh() {
         super.onTokenRefresh();
@@ -18,5 +20,8 @@ public class MyFirebaseInstanceIdService extends FirebaseInstanceIdService {
         String token = FirebaseInstanceId.getInstance().getToken();
 
         Log.d("Refreshed Token >>> ", token);
+
+        uploadkey.sendKeyToServer(token);
+
     }
 }

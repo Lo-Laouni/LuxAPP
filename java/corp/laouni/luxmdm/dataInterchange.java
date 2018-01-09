@@ -53,6 +53,27 @@ public class dataInterchange {
             @Override
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
+
+                Log.d("DevDataUpload : ",result);
+            }
+        }.execute();
+    }
+
+    protected  void sendKeyToServer(String key){
+        final JSONObject jsonKEY = formatKeyAsJSON(key);
+
+        new AsyncTask<Void, Void, String>(){
+
+            @Override
+            protected String doInBackground(Void... params) {
+                return getServerResponse(jsonKEY);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+
+                Log.d("TokenKey upload : ", s);
             }
         }.execute();
     }
