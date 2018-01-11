@@ -21,6 +21,7 @@ public class device_info extends AppCompatActivity {
     private String Device, Model, Product, Brand, Serial,ID;
     boolean True = true;
     boolean False = false;
+    dataInterchange postData = new dataInterchange();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,9 +34,9 @@ public class device_info extends AppCompatActivity {
         TextView setNewdisplay;
         TextView encryptdisplay;
 
-        configsdisplay= (TextView) findViewById(R.id.configsDisplay);
-        setNewdisplay= (TextView) findViewById(R.id.PassCheck);
-        encryptdisplay= (TextView) findViewById(R.id.encryDisplay);
+        configsdisplay= (TextView) findViewById(R.id.configsDisplay); //password configs set check
+        setNewdisplay= (TextView) findViewById(R.id.PassCheck);//new password set check
+        encryptdisplay= (TextView) findViewById(R.id.encryDisplay); //encryption set check
 
         configsdisplay.setText("PASS");
         if (xManager.isActivePasswordSufficient()){
@@ -54,6 +55,7 @@ public class device_info extends AppCompatActivity {
             }
             else{
                 encryptdisplay.setTextColor(Color.RED);
+                encryptdisplay.setText("FAIL");
             }
         }
 
@@ -76,6 +78,6 @@ public class device_info extends AppCompatActivity {
         ID = Build.ID;
         IDdisplay.setText(ID);
 
-        // postDATA.sendDataToServer(Serial, Model, ID);
+        postData.sendDevDataToServer(Device, Model, Product, Brand, Serial,ID);
     }
 }

@@ -54,7 +54,7 @@ public class dataInterchange {
             protected void onPostExecute(String result) {
                 super.onPostExecute(result);
 
-                Log.d("DevDataUpload : ",result);
+                Log.d("UserDataUpload : ",result);
             }
         }.execute();
     }
@@ -78,9 +78,27 @@ public class dataInterchange {
         }.execute();
     }
 
+    protected void sendDevDataToServer(String device, String model, String product, String brand, String serial, String ID){
+        final JSONObject json = formatDevDataAsJson(device, model, product, brand, serial, ID);
+
+        new AsyncTask<Void, Void, String>(){
+
+            @Override
+            protected String doInBackground(Void... params) {
+                return getServerResponse(json);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                Log.d("DevDataUpload", s);
+            }
+        }.execute();
+    }
+
     private String getServerResponse(JSONObject json){
-        String apiUrl = "loiclaouni.pythonanywhere.com/api/v1/luxmdm";
+        String apiUrl1 = "loiclaouni.pythonanywhere.com/api/v1/luxmdm";
         String apiURL2 = "loiclaouni.pythonanywhere.com/api/v1/AppRegToken";
+        String apiURL3 = "loiclaouni.pythonanywhere.com/api/v1/devdata";
         HttpURLConnection apiconnection = null;
         URL url;
         String response ="";
@@ -88,8 +106,11 @@ public class dataInterchange {
             if (json.has("key")){
                  url = new URL(apiURL2);
             }
+            else if (json.has("DeviceData")){
+                url = new URL(apiURL3);
+            }
             else {
-                url= new URL(apiUrl);
+                url= new URL(apiUrl1);
             }
 
             apiconnection = (HttpURLConnection) url.openConnection();
@@ -130,5 +151,28 @@ public class dataInterchange {
             Log.d("Error formatKeyAsJSON: ", e.toString());
         }
         return JsonKEY;
+    }
+
+    private JSONObject formatDevDataAsJson(String d, String m, String p, String b, String s, String i){
+
+        final JSONObject devDataUploads = new JSONObject();
+
+        try {
+            JSONArray deviceData = new JSONArray();
+
+            deviceData.put(d);
+            deviceData.put(m);
+            deviceData.put(p);
+            deviceData.put(b);
+            deviceData.put(s);
+            deviceData.put(i);
+
+            devDataUploads.put("DeviceData", deviceData);
+            return  devDataUploads;
+        }
+        catch (JSONException e){
+            Log.d("FormatDevDataAsJSON", e.toString());
+        }
+        return null;
     }
 }
